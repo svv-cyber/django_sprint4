@@ -138,6 +138,10 @@ EMAIL_FILE_PATH = BASE_DIR / 'sent_emails'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Authentication redirects
 LOGIN_REDIRECT_URL = 'blog:index'
 LOGOUT_REDIRECT_URL = 'blog:index'
 TEMPLATES_DIR = BASE_DIR / 'templates'
+
+# CSRF failure view
+CSRF_FAILURE_VIEW = 'pages.views.csrf_failure'

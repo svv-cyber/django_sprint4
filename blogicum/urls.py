@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -11,3 +13,7 @@ urlpatterns = [
 # Обработчики ошибок
 handler404 = 'pages.views.page_not_found'
 handler500 = 'pages.views.server_error'
+
+# Раздача медиа-файлов (только при DEBUG=True)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
